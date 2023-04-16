@@ -13,8 +13,8 @@ const TodoHeader = () => {
               ) => {
                 if (e.keyCode === 13) {
                   // 回车时
-                  addTodo(e.target.value);
-                  e.target.value = '';
+                  addTodo((e.target as HTMLInputElement).value);
+                  (e.target as HTMLInputElement).value = '';
                 }
               };
               return (
