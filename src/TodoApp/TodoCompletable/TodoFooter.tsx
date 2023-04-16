@@ -5,6 +5,7 @@ import {
   TemplateConnector,
   TemplatePlaceholder,
 } from '@devexpress/dx-react-core';
+import { Todo } from '../TodoStore';
 
 enum Tag {
   All = '',
@@ -15,7 +16,7 @@ enum Tag {
 const TodoFooter = () => {
   const [tag, setTag] = React.useState(Tag.All);
   const filterTodo = React.useCallback(
-    (todos) => {
+    (todos: Todo[]) => {
       return todos.filter((todo) => {
         if (tag === Tag.Active) {
           return !todo.completed;

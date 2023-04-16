@@ -9,12 +9,13 @@ import {
   Action,
 } from '@devexpress/dx-react-core';
 import TodoFooter from './TodoFooter';
+import { Todo } from '../TodoStore';
 
 const TodoCompletable = () => {
   const [completedTodoIds, setCompletedTodoIds] = useState([]);
 
   const getTodoWithCompletedStatus = useCallback(
-    ({ todos }) => {
+    ({ todos = [] } : { todos? : Todo []}) => {
       return todos.map((each) => {
         return {
           ...each,
@@ -25,10 +26,10 @@ const TodoCompletable = () => {
     [completedTodoIds]
   );
 
-  const completeTodoAction = useCallback((id) => {
+  const completeTodoAction = useCallback((id: string) => {
     setCompletedTodoIds((ids) => uniq(ids.concat(id)));
   }, []);
-  const activeTodoAction = useCallback((id) => {
+  const activeTodoAction = useCallback((id: string) => {
     setCompletedTodoIds((ids) => ids.filter((each) => each !== id));
   }, []);
 
@@ -46,7 +47,7 @@ const TodoCompletable = () => {
 
       {/* 扩展 todoList 中 li，增加对应的 className */}
       <Template name="todoList">
-        {({ todos }) =>
+        {({ todos = [] } : { todos? : Todo []}) =>
           todos.map((todo) => (
             <li className={todo.completed && 'completed'}>
               <TemplatePlaceholder name="todoItem" params={{ todo }} />
@@ -56,19 +57,19 @@ const TodoCompletable = () => {
       </Template>
       {/* 扩展 todoItem 样式，增加 checkbox */}
       <Template name="todoItem">
-        {({ todo }) => (
+        {({ todo } : { todo? : Todo }) => (
           <TemplateConnector>
             {(getters, { completeTodo, activeTodo }) => (
               <div className="view">
                 <input
                   className="toggle"
                   type="checkbox"
-                  checked={todo.completed}
+                  checked={todo!.completed}
                   onChange={(e) => {
                     if (e.target.checked) {
-                      completeTodo(todo.id);
+                      completeTodo(todo!.id);
                     } else {
-                      activeTodo(todo.id);
+                      activeTodo(todo!.id);
                     }
                   }}
                 />

@@ -5,6 +5,7 @@ import shortid from 'shortid';
 export interface Todo {
   id: string;
   title: string;
+  completed?: boolean;
 }
 
 const TodoStore = () => {
