@@ -49,7 +49,10 @@ const TodoCompletable = () => {
       <Template name="todoList">
         {({ todos = [] } : { todos? : Todo []}) =>
           todos.map((todo) => (
-            <li className={todo.completed ? 'completed' : ''}>
+            <li 
+              className={todo.completed ? 'completed' : ''}
+              key={todo.id + todo.title}
+            >
               <TemplatePlaceholder name="todoItem" params={{ todo }} />
             </li>
           ))

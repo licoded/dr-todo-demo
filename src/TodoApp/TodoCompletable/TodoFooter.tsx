@@ -47,7 +47,7 @@ const TodoFooter = () => {
               </span>
               <ul className="filters">
                 {[Tag.All, Tag.Active, Tag.Complete].map((t) => (
-                  <li>
+                  <li key={t}>
                     <a
                       className={(tag === t) ? 'selected' : ''}
                       href={`#/${t.toLowerCase()}`}
