@@ -12,6 +12,7 @@ enum Tag {
   Active = 'Active',
   Complete = 'Complete',
 }
+const tags = Object.values(Tag);
 
 const TodoFooter = () => {
   const [tag, setTag] = React.useState(Tag.All);
@@ -46,7 +47,7 @@ const TodoFooter = () => {
                 <strong>{filterTodo(todos).length}</strong> item left
               </span>
               <ul className="filters">
-                {[Tag.All, Tag.Active, Tag.Complete].map((t) => (
+                {tags.map((t) => (
                   <li key={t}>
                     <a
                       className={(tag === t) ? 'selected' : ''}
