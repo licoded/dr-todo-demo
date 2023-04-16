@@ -26,7 +26,7 @@ const TodoList = () => {
       <Template name="todoList">
         {({ todos = [] } : { todos? : Todo[]}) =>
           todos.map((todo) => (
-            <li>
+            <li key={todo.id + todo.title}>
               <TemplatePlaceholder name="todoItem" params={{ todo }} />
             </li>
           ))
