@@ -49,7 +49,7 @@ const TodoFooter = () => {
                 {[Tag.All, Tag.Active, Tag.Complete].map((t) => (
                   <li>
                     <a
-                      className={tag === t && 'selected'}
+                      className={(tag === t) ? 'selected' : ''}
                       href={`#/${t.toLowerCase()}`}
                       onClick={() => setTag(t)}
                     >
