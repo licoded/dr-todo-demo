@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@devexpress/dx-react-core": "^4.0.3",
+    "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "shortid": "^2.2.16",
     "todomvc-app-css": "^2.4.2"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.194",
     "@types/react": "^18.0.28",
     "@types/react-dom": "^18.0.11",
     "@types/shortid": "^0.0.29",
