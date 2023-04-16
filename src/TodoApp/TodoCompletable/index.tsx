@@ -12,7 +12,7 @@ import TodoFooter from './TodoFooter';
 import { Todo } from '../TodoStore';
 
 const TodoCompletable = () => {
-  const [completedTodoIds, setCompletedTodoIds] = useState([]);
+  const [completedTodoIds, setCompletedTodoIds] = useState<string[]>([]);
 
   const getTodoWithCompletedStatus = useCallback(
     ({ todos = [] } : { todos? : Todo []}) => {
