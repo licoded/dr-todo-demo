@@ -3,6 +3,7 @@ import 'todomvc-app-css/index.css';
 import TodoCore from './TodoCore';
 import TodoHeader from './TodoHeader';
 import TodoList from './TodoList';
+import TodoCompletable from './TodoCompletable';
 
 const TodoApp = () => {
   return (
@@ -12,6 +13,8 @@ const TodoApp = () => {
       {/* ========= plugins ========= */}
       <TodoHeader />
       <TodoList />
+      {/* completable plugin */}
+      <TodoCompletable />
     </PluginHost>
   );
 };
