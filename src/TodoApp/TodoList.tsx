@@ -4,6 +4,7 @@ import {
   TemplatePlaceholder,
   TemplateConnector,
 } from '@devexpress/dx-react-core';
+import { Todo } from './TodoStore';
 
 const TodoList = () => {
   return (
@@ -23,7 +24,7 @@ const TodoList = () => {
       </Template>
 
       <Template name="todoList">
-        {({ todos }) =>
+        {({ todos = [] } : { todos? : Todo[]}) =>
           todos.map((todo) => (
             <li>
               <TemplatePlaceholder name="todoItem" params={{ todo }} />
@@ -32,7 +33,7 @@ const TodoList = () => {
         }
       </Template>
       <Template name="todoItem">
-        {({ todo }) => <label>{todo.title}</label>}
+        {({ todo } : { todo? : Todo }) => <label>{ todo!.title }</label>}
       </Template>
     </Plugin>
   );
