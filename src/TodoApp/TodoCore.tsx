@@ -3,7 +3,7 @@ import {
   Template,
   TemplatePlaceholder,
 } from '@devexpress/dx-react-core';
-import TodoStore from './TodoStore';
+import TodoStore, { Todo } from './TodoStore';
 
 const TodoCore = () => {
   return (
